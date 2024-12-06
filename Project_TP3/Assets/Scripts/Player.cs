@@ -13,7 +13,7 @@ public class Player : MonoBehaviour
     private Camera _camera;
     private Rigidbody _rb;
     private Animator _animator;
-    private HealthAndDefense _currentEnemy;
+    private HealthEnemy _currentEnemy;
     private Vector3 _targetPosition;
     private bool _attackIsActive;
 
@@ -36,7 +36,7 @@ public class Player : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit))
             {
-                HealthAndDefense enemy = hit.collider.gameObject.GetComponent<HealthAndDefense>();
+                HealthEnemy enemy = hit.collider.gameObject.GetComponent<HealthEnemy>();
 
                 if (enemy != null)
                 {

@@ -2189,7 +2189,7 @@ GameObject:
   - component: {fileID: 95134278121134524}
   - component: {fileID: -3521492320107332343}
   - component: {fileID: 1909276035248371498}
-  - component: {fileID: -5901090847043540617}
+  - component: {fileID: 3285267636169969572}
   m_Layer: 0
   m_Name: Enemy2
   m_TagString: Untagged
@@ -2239,7 +2239,7 @@ Animator:
   m_GameObject: {fileID: 1624536181693422}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: b6ef2f4d0154b2747860a3332fa05f97, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d8a70296438ab0046bc4b57747b1101f, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -2280,7 +2280,7 @@ CapsuleCollider:
   m_Height: 1.67
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
---- !u!114 &-5901090847043540617
+--- !u!114 &3285267636169969572
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2289,7 +2289,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1624536181693422}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc3e7e5288b837a419215a8a9cbaef7a, type: 3}
+  m_Script: {fileID: 11500000, guid: 57a4e6a738e22984d8027b77ea5dd5fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _health: 100

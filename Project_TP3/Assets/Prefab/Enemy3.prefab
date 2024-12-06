@@ -3421,7 +3421,8 @@ GameObject:
   - component: {fileID: 95635682890057356}
   - component: {fileID: -6234327473855874350}
   - component: {fileID: 3530532904214177145}
-  - component: {fileID: -5049405299976380125}
+  - component: {fileID: 1973325740390267538}
+  - component: {fileID: 281784318734715379}
   m_Layer: 0
   m_Name: Enemy3
   m_TagString: Untagged
@@ -3471,7 +3472,7 @@ Animator:
   m_GameObject: {fileID: 1698772203058814}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: b6ef2f4d0154b2747860a3332fa05f97, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d8a70296438ab0046bc4b57747b1101f, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -3508,11 +3509,11 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.25
+  m_Radius: 0.34
   m_Height: 1.55
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
---- !u!114 &-5049405299976380125
+--- !u!114 &1973325740390267538
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3521,7 +3522,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 1698772203058814}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc3e7e5288b837a419215a8a9cbaef7a, type: 3}
+  m_Script: {fileID: 11500000, guid: c8c400b57c78e1948ae4956bc6e13a83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _movementSpeed: 5
+  _stoppingDistance: 1
+  _attackCoolDown: 1.5
+  _damage: 10
+--- !u!114 &281784318734715379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1698772203058814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57a4e6a738e22984d8027b77ea5dd5fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _health: 100
