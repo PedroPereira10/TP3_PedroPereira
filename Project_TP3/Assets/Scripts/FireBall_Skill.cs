@@ -23,7 +23,7 @@ public class FireBall_Skill : MonoBehaviour
             ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out hit))
             {
-                HealthPlayer health = hit.collider.GetComponent<HealthPlayer>();
+                HealthEnemy health = hit.collider.GetComponent<HealthEnemy>();
                 if (health != null)
                 {
                     _animator.transform.parent.LookAt(health.transform.position);
@@ -40,12 +40,12 @@ public class FireBall_Skill : MonoBehaviour
 
     private IEnumerator SendFireBall(Transform target)
     {
-        _animator.SetBool("IsAttacking", true);
+        _animator.SetBool("IsFiring", true);
         yield return new WaitForSeconds(_animationDelay);
         FireBall newFireBall = Instantiate(_fireBall, _CharacterHand.position, Quaternion.identity);
         newFireBall.SetTarget(target);
         _timer = 0;
         yield return new WaitForSeconds(_animationDelay);
-        _animator.SetBool("IsAttacking", false);
+        _animator.SetBool("IsFiring", false);
     }
 }

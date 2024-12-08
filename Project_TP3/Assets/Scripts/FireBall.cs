@@ -50,7 +50,7 @@ public class FireBall : MonoBehaviour
         Collider[] hitCollider = Physics.OverlapSphere(transform.position, _radius);
         foreach (Collider collider in hitCollider)
         {
-            HealthPlayer health = collider.GetComponent<HealthPlayer>();
+            HealthEnemy health = collider.GetComponent<HealthEnemy>();
             if (health != null)
             {
                 health.ReceiveDamage(_damage);

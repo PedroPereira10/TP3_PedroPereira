@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float _stoppingDistance = 1f;
     [SerializeField] private float _attackCoolDown = 1.5f;
     [SerializeField] private int _damage = 20;
+    [SerializeField] private List<Crystal> _collectedCrystals = new List<Crystal>();
 
     private Camera _camera;
     private Rigidbody _rb;
@@ -22,6 +23,35 @@ public class Player : MonoBehaviour
         _camera = Camera.main;
         _rb = GetComponent<Rigidbody>();
         _animator = GetComponentInChildren<Animator>();
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        
+        Crystal crystal = other.GetComponent<Crystal>();
+        if (crystal != null && !crystal.IsCollected)
+        {
+            crystal.IsCollected = true;  
+            _collectedCrystals.Add(crystal);  
+            crystal.gameObject.SetActive(false); 
+            Debug.Log("Cristal collecté !");
+        }
+    }
+
+    public bool HasCrystalToDeposit()
+    {
+        return _collectedCrystals.Count > 0; 
+    }
+
+    
+    public void RemoveCrystal()
+    {
+        if (_collectedCrystals.Count > 0)
+        {
+            Crystal crystalToRemove = _collectedCrystals[0];
+            _collectedCrystals.RemoveAt(0);  
+            Debug.Log("Cristal déposé sur le socle !");
+        }
     }
 
 

@@ -5,8 +5,8 @@ using UnityEngine;
 public class Randomizer : MonoBehaviour
 {
     [SerializeField] private GameObject _interactiveElement;
-    [SerializeField] private GameObject _meleeEnemyGenerator;
-    [SerializeField] private GameObject _rangeEnemyGenerator;
+    [SerializeField] private GameObject _Generator;
+    [SerializeField] private GameObject _Generator1;
 
     private List<Vector3> _allPosition = new List<Vector3>();
     void Start()
@@ -19,12 +19,12 @@ public class Randomizer : MonoBehaviour
 
         int randomIndex = Random.Range(0, _allPosition.Count);
         Vector3 randomPos = _allPosition[randomIndex];
-        Instantiate(_meleeEnemyGenerator, randomPos, Quaternion.identity, transform);
+        Instantiate(_Generator, randomPos, Quaternion.identity, transform);
         _allPosition.RemoveAt(randomIndex);
 
         randomIndex = Random.Range(0, _allPosition.Count);
         randomPos = _allPosition[randomIndex];
-        Instantiate(_rangeEnemyGenerator, randomPos, Quaternion.identity, transform);
+        Instantiate(_Generator1, randomPos, Quaternion.identity, transform);
         _allPosition.RemoveAt(randomIndex);
 
         foreach (var position in _allPosition)
