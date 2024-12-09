@@ -9,12 +9,12 @@ public class Pedestal : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        
+        Debug.Log("Collision détectée avec : " + other.name);
+
         if (other.GetComponent<Player>())
         {
             Debug.Log("Le joueur est sur le socle");
 
-            
             if (_player.HasCrystalToDeposit())  
             {
                 DepositCrystal();
@@ -24,15 +24,11 @@ public class Pedestal : MonoBehaviour
 
     private void DepositCrystal()
     {
-        
         _currentCrystalCount++;
 
-        
         _player.RemoveCrystal();
-
         Debug.Log("Cristal déposé, " + _currentCrystalCount + " sur " + _requiredCrystals);
 
-        
         if (_currentCrystalCount >= _requiredCrystals)
         {
             OpenDoor();
