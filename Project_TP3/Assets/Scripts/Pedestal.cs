@@ -28,6 +28,7 @@ public class Pedestal : MonoBehaviour
 
         _player.RemoveCrystal();
         Debug.Log("Cristal déposé, " + _currentCrystalCount + " sur " + _requiredCrystals);
+        AudioManager.Instance.ItemDeposited();
 
         if (_currentCrystalCount >= _requiredCrystals)
         {

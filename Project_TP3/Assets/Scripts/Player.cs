@@ -9,7 +9,9 @@ public class Player : MonoBehaviour
     [SerializeField] private float _stoppingDistance = 1f;
     [SerializeField] private float _attackCoolDown = 1.5f;
     [SerializeField] private int _damage = 20;
+    [SerializeField] private Vector3 _startPosition;
     [SerializeField] private List<Crystal> _collectedCrystals = new List<Crystal>();
+    
 
     private Camera _camera;
     private Rigidbody _rb;
@@ -23,6 +25,8 @@ public class Player : MonoBehaviour
         _camera = Camera.main;
         _rb = GetComponent<Rigidbody>();
         _animator = GetComponentInChildren<Animator>();
+        transform.position = _startPosition;
+        _targetPosition = _startPosition;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -35,6 +39,7 @@ public class Player : MonoBehaviour
             _collectedCrystals.Add(crystal);  
             crystal.gameObject.SetActive(false); 
             Debug.Log("Cristal collecté !");
+            AudioManager.Instance.PlayItemCollectSound();
         }
     }
 
