@@ -5,13 +5,13 @@ public class Pedestal : MonoBehaviour
     [SerializeField] private int _requiredCrystals = 3;  
     [SerializeField] private GameObject _door;          
     private int _currentCrystalCount = 0;                
-    [SerializeField] private Player _player;             
+    [SerializeField] private Player _player;
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("Collision détectée avec : " + other.name);
+        Debug.Log("Collision détectée avec : " + collision.collider.name);
 
-        if (other.GetComponent<Player>())
+        if (collision.collider.GetComponent<Player>())
         {
             Debug.Log("Le joueur est sur le socle");
 

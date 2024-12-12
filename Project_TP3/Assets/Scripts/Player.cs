@@ -29,15 +29,14 @@ public class Player : MonoBehaviour
         _targetPosition = _startPosition;
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision collision)
     {
-        
-        Crystal crystal = other.GetComponent<Crystal>();
+        Crystal crystal = collision.collider.GetComponent<Crystal>();
         if (crystal != null && !crystal.IsCollected)
         {
-            crystal.IsCollected = true;  
-            _collectedCrystals.Add(crystal);  
-            crystal.gameObject.SetActive(false); 
+            crystal.IsCollected = true;
+            _collectedCrystals.Add(crystal);
+            crystal.gameObject.SetActive(false);
             Debug.Log("Cristal collecté !");
             AudioManager.Instance.PlayItemCollectSound();
         }
@@ -118,10 +117,18 @@ public class Player : MonoBehaviour
 
     private void Attack()
     {
-        _animator.SetBool("IsAttacking", true);
-        _attackIsActive = false;
-        _currentEnemy.ReceiveDamage(_damage);
+        if (_currentEnemy != null)
+        {
+            _animator.SetBool("IsAttacking", true);
+            _attackIsActive = false;
+            _currentEnemy.ReceiveDamage(_damage);
+        }
+        else
+        {
+            Debug.LogWarning("Aucun ennemi sélectionné");
+        }
     }
+
 
     public void ResetAttack()
     {

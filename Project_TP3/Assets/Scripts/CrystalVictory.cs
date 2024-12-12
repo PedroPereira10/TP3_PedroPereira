@@ -9,9 +9,9 @@ public class CrystalVictory : MonoBehaviour
     [SerializeField] private GameManager _gameManager;
 
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision collision)
     {
-        if (other.GetComponent<Player>())
+        if (collision.collider.GetComponent<Player>())
         {
             Debug.Log("Cristal victoire collecté !");
             Destroy(gameObject);

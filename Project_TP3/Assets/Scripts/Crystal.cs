@@ -4,7 +4,7 @@ public class Crystal : MonoBehaviour
 {
     public bool IsCollected = false;  
 
-    private void OnTriggerEnter(Collider other)
+    /*private void OnTriggerEnter(Collider other)
     {
         Player player = other.GetComponent<Player>();
         if (player != null && !IsCollected)
@@ -16,4 +16,5 @@ public class Crystal : MonoBehaviour
             Debug.Log("Cristal collecté !");
         }
     }
+    */
 }
